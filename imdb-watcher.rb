@@ -30,7 +30,8 @@ imdb_watchlist_entries.each do |imdb_item|
   }
 
   itunes_method = tv ? :tv_show : :movie
-  itunes_videos = itunes.send(itunes_method, title, itunes_country).results
+  itunes_videos = itunes.send(itunes_method, title, itunes_country).results rescue nil
+  itunes_videos ||= []
   itunes_videos.each do |itunes_video|
     itunes_year = Date.parse(itunes_video['release_date']).year
     itunes_title = itunes_video[tv ? 'artist_name' : 'track_name']
