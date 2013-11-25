@@ -20,6 +20,8 @@ imdb_watchlist_entries.each do |imdb_item|
   year = year.to_i
   tv = (tv == "TV Series")
 
+  next if title.nil?
+
   watch_item = {
     title: title,
     year: year,
