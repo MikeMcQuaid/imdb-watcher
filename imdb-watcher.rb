@@ -26,7 +26,7 @@ imdb_watchlist_entries.each do |imdb_item|
     itunes_exact: [],
     itunes_fuzzy: [],
     netflix_exact: [],
-    nexflix_fuzzy: [],
+    netflix_fuzzy: [],
   }
 
   itunes_method = tv ? :tv_show : :movie
@@ -60,7 +60,7 @@ imdb_watchlist_entries.each do |imdb_item|
       watch_item[:netflix_exact] = netflix_url
       break
     elsif netflix_year == year and not (netflix_title.downcase.split & title.downcase.split).empty?
-      watch_item[:nexflix_fuzzy] << {
+      watch_item[:netflix_fuzzy] << {
         title: netflix_title,
         year: netflix_year,
         url: netflix_url
