@@ -4,7 +4,6 @@ require 'xmlsimple'
 require 'itunes'
 require 'logger' # needed before netflix4r
 require 'netflix4r'
-require 'ap'
 
 itunes_country = 'gb'
 itunes_country = { country: itunes_country }
@@ -51,7 +50,7 @@ imdb_watchlist_entries.each do |imdb_item|
     end
   end
 
-  netflix_videos = NetFlix::Title.search(term: title, max_results: 10)
+  netflix_videos = NetFlix::Title.search(term: title, country: 'uk', max_results: 10)
   netflix_videos.each do |netflix_video|
     next unless netflix_video.delivery_formats.include? 'instant'
     netflix_year = netflix_video.release_year
@@ -70,5 +69,15 @@ imdb_watchlist_entries.each do |imdb_item|
     end
   end
 
-  ap watch_item
+  if watch_item[:itunes_exact].empty? && watch_item[:itunes_fuzzy].empty? \
+     && watch_item[:netflix_exact].empty? && watch_item[:netflix_fuzzy].empty?
+    next
+  end
+
+  puts "#{title} (#{year})"
+  puts "iTunes: #{watch_item[:itunes_exact]}" unless watch_item[:itunes_exact].empty?
+  puts "iTunes (maybe): #{watch_item[:itunes_fuzzy]}" unless watch_item[:itunes_fuzzy].empty?
+  puts "Netflix: #{watch_item[:netflix_exact]}" unless watch_item[:netflix_exact].empty?
+  puts "Netflix (maybe): #{watch_item[:netflix_fuzzy]}" unless watch_item[:netflix_fuzzy].empty?
+  puts
 end
