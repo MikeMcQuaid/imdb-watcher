@@ -1,3 +1,5 @@
+/.bundle/
+/bin/
 /config/netflix_credentials.yml
 /log/netflix.log
 /vendor/
