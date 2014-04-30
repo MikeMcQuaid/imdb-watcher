@@ -50,7 +50,7 @@ imdb_watchlist_entries.each do |imdb_item|
     end
   end
 
-  netflix_videos = NetFlix::Title.search(term: title, country: 'uk', max_results: 10)
+  netflix_videos = NetFlix::Title.search(term: title, max_results: 10)
   netflix_videos.each do |netflix_video|
     next unless netflix_video.delivery_formats.include? 'instant'
     netflix_year = netflix_video.release_year
