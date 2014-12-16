@@ -1,5 +1,6 @@
 /.bundle/
-/bin/
+/bin/*
+!/bin/imdb-watcher
 /config/netflix_credentials.yml
 /log/netflix.log
 /vendor/
