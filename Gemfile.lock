@@ -21,7 +21,7 @@ GEM
       multi_json (~> 1.0)
       rash (~> 0.3)
     json (2.0.3)
-    mini_portile2 (2.2.0)
+    mini_portile2 (2.3.0)
     minitest (5.10.1)
     multi_json (1.12.1)
     multi_xml (0.6.0)
@@ -31,8 +31,8 @@ GEM
       json
       nokogiri
       ruby-hmac
-    nokogiri (1.8.0)
-      mini_portile2 (~> 2.2.0)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
     rash (0.4.0)
       hashie (~> 2.0.0)
     ruby-hmac (0.4.0)
@@ -52,4 +52,4 @@ DEPENDENCIES
   xml-simple
 
 BUNDLED WITH
-   1.14.6
+   1.15.3
